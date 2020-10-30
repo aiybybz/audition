@@ -1,0 +1,768 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Android-面试题</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><p><span>Android</span>
+<span>	</span><span>1.自定义View</span>
+<span>	</span><span>2.事件拦截分发</span>
+<span>	</span><span>3.性能优化工具</span>
+<span>	</span><span>5.缓存</span></p><p>&nbsp;</p><h2><a name="目录" class="md-header-anchor"></a><span>目录</span></h2><h3><a name="android" class="md-header-anchor"></a><span>Android</span></h3><p><a href='#一activity'><span>一、Activity</span></a>
+<span>  </span><a href='#11-activity-生命周期'><span>1.1 Activity (生命周期)</span></a><span> </span>
+<span>  </span><a href='#12-activity-运行状态'><span>1.2 Activity (运行状态)</span></a><span> </span>
+<span>  </span><a href='#13-activity-生存期'><span>1.3 Activity (生存期)</span></a></p><p><span>  </span><a href='#21-stack-任务栈'><span>2.1. Stack (任务栈)</span></a><span> </span>
+<span>  </span><a href='#22-taskaffinity-任务相关性'><span>2.2. TaskAffinity (任务相关性)</span></a><span> </span>
+<span>  </span><a href='#23-launchmode-启动模式'><span>2.3. LaunchMode (启动模式)</span></a></p><p><span>  </span><a href='#3-activity启动流程'><span>3. Activity启动流程</span></a><span> !!!!!未完待续</span></p><p><a href='#二service'><span>二、Service</span></a></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><hr /><h4><a name="一activity" class="md-header-anchor"></a><span>一、Activity</span></h4><h5><a name="1-生命周期" class="md-header-anchor"></a><span>1. 生命周期</span></h5><h5><a name="11-activity-生命周期" class="md-header-anchor"></a><span>1.1. Activity (生命周期)</span></h5><h5><a name="111-正常情况" class="md-header-anchor"></a><span>1.1.1 正常情况</span></h5><ol start='' ><li><span>onCreate() </span><code>第一次创建</code>
+<span>• 完成初始化操作（加载布局、绑定事件等）</span></li><li><span>onStart()</span>
+<span>• 由不可见变为可见。并未出现在前台</span></li><li><span>onResume()  </span><code>运行状态</code>
+<span>• </span><code>Activity</code><span> 准备好和用户进行交互时调用</span>
+<span>• </span><code>Activity</code><span> 位于栈顶</span>
+<span>• 可在此重新初始化在</span><code>onPause()</code><span>或</span><code>onStop()</code><span>中释放的资源</span></li><li><span>onPause()  </span><code>暂停状态</code>
+<span>• 系统准备去启动或恢复另一个 </span><code>Activity</code><span> 时调用</span>
+<span>• 通常在此释放消耗CPU的资源，保存关键数据</span>
+<span>• </span><code>onPause()</code><span>执行速度要快，会影响新栈顶 </span><code>Activity</code><span> 的使用</span>
+<span>• </span><code>onPause()</code><span>执行完，新 </span><code>Activity</code><span> </span><code>onResume()</code><span> 才会执行</span></li><li><span>onStop()  </span><code>停止状态</code>
+<span>• </span><code>Activity</code><span> 完全不可见时调用。停止或完全被覆盖，仅后台运行</span>
+<span>• 可以释放资源（不能太耗时）</span>
+<span>• 新启动对话框式的 </span><code>Activity</code><span>，</span><code>onPause()</code><span> 会执行，</span><code>onStop()</code><span>不会执行</span></li><li><span>onDestroy() </span><code>销毁状态</code>
+<span>• </span><code>Activity</code><span> 被销毁之前调用</span></li><li><span>onRestart() </span><code>重新启动</code>
+<span>• </span><code>Activity</code><span> 由</span><code>停止状态</code><span>变为</span><code>运行状态</code><span>之前调用</span></li></ol><h5><a name="112-重建情况" class="md-header-anchor"></a><span>1.1.2. 重建情况</span></h5><p><span>当内存不足杀死 </span><code>Activity</code><span> 时为重建情况</span></p><ol start='' ><li><span>onSaveInstanceState() </span><code>保存实例状态</code>
+<span>• </span><code>Activity</code><span> 异常终止时调用</span>
+<span>• 会把需要保存的数据保存到 </span><code>Bundle</code></li><li><span>onRestoreInstanceState() </span><code>恢复实例状态</code>
+<span>• </span><code>Activity</code><span> 异常终止后重建调用</span>
+<span>• 还原异常终止时保存的 </span><code>Bundle</code></li></ol><h5><a name="113-避免重建" class="md-header-anchor"></a><span>1.1.3. 避免重建</span></h5><p><span>  • 指定 </span><code>Activity configChanges</code><span> 属性可以避免重建。</span>
+<span>  • 避免重建后会调用 </span><code>onConfigurationChanged()</code></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="undefined"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="undefined"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">“locale“ 所在地区发生变化，系统语言</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">“keyboard“ 键盘模式发生变化，例如：用户接入外部键盘输入</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">“keyboardHidden“ 用户打开手机硬件键盘</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">“orientation“ 设备旋转，横向显示和竖向显示模式切换</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">“fontScale“ 全局字体大小缩放发生改变</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><h5><a name="114-复用情况" class="md-header-anchor"></a><span>1.1.4. 复用情况</span></h5><ol start='' ><li><span>onNewIntent()</span>
+<span>• </span><code>singleTop</code><span>、</span><code>singleTask</code><span>、</span><code>singleInstance</code><span> 三种模式重复启动时会调用</span>
+<span>• 通过此方法可取出请求信息</span></li></ol><h5><a name="12-activity-运行状态" class="md-header-anchor"></a><span>1.2. Activity (运行状态)</span></h5><ol start='' ><li><span>Running </span><code>运行状态</code>
+<span>• </span><code>Activity</code><span> 处于栈顶时</span>
+<span>• 系统回收等级最低</span></li><li><span>Paused </span><code>暂停状态</code>
+<span>• </span><code>Activity</code><span> 不再处于栈顶，但仍可见（失去焦点、非全屏遮挡、透明遮挡）</span>
+<span>• 状态及变量都还存在</span>
+<span>• 内存紧张时，可能被系统回收掉</span></li><li><span>Stopped </span><code>停止状态</code>
+<span>• </span><code>Activity</code><span> 不再处于栈顶，完全不可见</span>
+<span>• 状态及变量都还存在，但并不安全</span>
+<span>• 内存紧张时，可能被系统回收掉</span></li><li><span>Killed </span><code>销毁状态</code>
+<span>• </span><code>Activity</code><span> 从栈中移除后变为销毁状态</span>
+<span>• 系统优先回收当前状态的活动</span></li></ol><h5><a name="13-activity-生存期" class="md-header-anchor"></a><span>1.3. Activity (生存期)</span></h5><ol start='' ><li><span>完整生存期</span>
+<span>•  </span><code>Activity</code><span> 在 </span><code>onCreate() ~ onDestroy()</code><span> 的经历</span>
+<span>• 一般情况，在 </span><code>onCreate()</code><span> 中完成初始化操作，在 </span><code>onDestroy()</code><span> 中完成释放内存操作</span></li><li><span>可见生存期</span>
+<span>• </span><code>Activity</code><span> 在 </span><code>onStart() ~ onStop()</code><span> 的经历</span>
+<span>• 可通过</span><code>onStart()</code><span>、</span><code>onStop()</code><span>，管理用户可见资源</span>
+<span>• 在 </span><code>onStart()</code><span> 中加载源，在 </span><code>onStop()</code><span> 中释放资源</span></li><li><span>前台生存期</span>
+<span>• </span><code>Activity</code><span> 在 </span><code>onResume() ~ onPause()</code><span> 的经历</span>
+<span>• </span><code>Activity</code><span> 处于运行状态，可与用户进行交互</span></li></ol><h5><a name="2-启动模式" class="md-header-anchor"></a><span>2. 启动模式</span></h5><h5><a name="21-stack-任务栈" class="md-header-anchor"></a><span>2.1. Stack (任务栈)</span></h5><p><span>  • 栈是一种先进先出的数据结构</span>
+<span>  • 当启动一个新</span><code>Activity</code><span>，会入栈并处于栈顶</span>
+<span>  • 当销毁一个 </span><code>Activity</code><span>，会出栈并前一个入栈的</span><code>Activity</code><span>重新处于栈顶</span>
+<span>  • 任务栈分为前台任务栈和后台任务栈，后台任务栈中 </span><code>Activity</code><span>  位于暂停状态，可通过切换将后台任务栈再次调到前台</span></p><h5><a name="22-taskaffinity-任务相关性" class="md-header-anchor"></a><span>2.2. TaskAffinity (任务相关性)</span></h5><p><span>  • 标识 </span><code>Activity</code><span> 所需的任务栈名</span>
+<span>  • 默认情况下，所有 </span><code>Activity</code><span> 任务栈名为应用包名</span>
+<span>  • 可为每个 </span><code>Activity</code><span> 单独指定 </span><code>TaskAffinity</code>
+<span>  • 主要和 </span><code>singleTask 启动模式</code><span> 或 </span><code>allowTaskReparenting(允许任务重排)</code><span>属性配对使用</span></p><h5><a name="23-launchmode-启动模式" class="md-header-anchor"></a><span>2.3. LaunchMode (启动模式)</span></h5><p><span>一个任务栈中可以有多个实例每个实例也可以属于不同的任务栈</span>
+<span>代码中 </span><code>Intent.setFlags(int flags)</code><span> 设置启动模式</span></p><ol start='' ><li><span>standard (标准)</span></li></ol><p><span>  • 系统默认模式。每次启动 </span><code>Activity</code><span> 都会重新创建新实例</span>
+<span>  • 此模式下 </span><code>Activity</code><span>运行在启动它的那个 </span><code>Activity</code><span> 所在栈中</span>
+<span>  • 用 </span><code>ApplicationContext</code><span> 去启动 </span><code>standard</code><span> 模式的 </span><code>Activity</code><span> 会报错。因无任务栈</span></p><ol start='2' ><li><span>singleTop (栈顶复用)</span></li></ol><p><span>  • 此模式下如果新 </span><code>Activity</code><span> 已经位于栈顶，则不会被重建</span>
+<span>  • </span><code>onNewIntent()</code><span>会被回调</span>
+<span>  • </span><code>onCreate</code><span>、</span><code>onStart</code><span> 不会被调用，因为它并没有发生改变</span>
+<span>  • 如果新 </span><code>Activity</code><span> 的实例已存在但不是位于栈顶，那么新</span><code>Activity</code><span> 仍会重建</span></p><ol start='3' ><li><span>singleTask (栈内单例)</span></li></ol><p><span>  • 单实例，只要 </span><code>Activity</code><span> 在栈中存在，那么多次启动此 </span><code>Activity</code><span> 都不会重建</span>
+<span>  • </span><code>onNewIntent()</code><span>会被回调</span>
+<span>  • 默认具有 </span><code>clearTop</code><span> 的效果，会清空栈顶其它 </span><code>Activity</code>
+<span>  • 当该模式 </span><code>A</code><span> 请求启动后，会先寻找是否存在 </span><code>A</code><span> 想要的任务栈。如不存在则创建任务栈并创建 </span><code>A</code><span> 压入栈中；如存在所需任务栈，则查看 </span><code>A</code><span> 是否在栈中如不存在则创建 </span><code>A</code><span> 压入栈中</span></p><ol start='4' ><li><span>singleInstance (堆内单例)</span></li></ol><p><span>  • 加强版的 </span><code>singleTask</code>
+<span>  • 此种模式的 </span><code>Activity</code><span> 只能单独地位于一个任务栈中</span></p><h5><a name="3-activity启动流程" class="md-header-anchor"></a><span>3. Activity(启动流程) </span></h5><p><span>!!!!!未完待续</span></p><p>&nbsp;</p><h4><a name="二service" class="md-header-anchor"></a><span>二、Service</span></h4><h5><a name="1-生命周期-n92" class="md-header-anchor"></a><span>1. 生命周期</span></h5><h5><a name="11-service-生命周期" class="md-header-anchor"></a><span>1.1. Service (生命周期)</span></h5><p><img src="https://upload-images.jianshu.io/upload_images/3087349-f1a9f1307d0b506f.png" alt="生命周期" style="zoom:65%;" /></p><h5><a name="111-startservice-启动-service" class="md-header-anchor"></a><span>1.1.1. startService() 启动 </span><code>Service</code></h5><p><span>• </span><code>onCreate()</code><span> -- </span><code>onStartCommand()</code><span> -- </span><code>onDestroy()</code><span> </span></p><h5><a name="112-bindservice-绑定-service" class="md-header-anchor"></a><span>1.1.2. bindService() 绑定 </span><code>Service</code></h5><p><span>• </span><code>onCreate()</code><span> -- </span><code>onBind()</code><span> -- </span><code>onUnbind()</code><span> -- </span><code>onDestroy()</code><span> </span></p><h5><a name="12-service-方法" class="md-header-anchor"></a><span>1.2. Service 方法</span></h5><ol start='' ><li><span>onCreate() </span><code>创建服务</code>
+<span>• 服务创建时调用，创建后不会再调用</span></li><li><span>onStartCommand() </span><code>开始服务</code>
+<span>返回值杀死服务后如何运行</span>
+<span>  • START_NOT_STICKY：不重建</span><code>Service</code><span>(存在未发送的intent除外)</span>
+<span>  • START_STICKY：重建</span><code>Service</code><span>并用</span><code>null intent</code><span>调用</span><code>onStatCommand()</code><span>(存在未发送的intent除外) </span>
+<span>    • 适用播放器类服务，不执行命令，但需要一直运行并随时待命</span>
+<span>  • START_REDELIVER_INTENT：重建</span><code>Service</code><span>并用上个</span><code>intent</code><span>调用</span><code>onStartCommand()</code>
+<span>    • 适用需立即恢复工作的</span><code>Service</code><span>，如下载文件</span>
+<span>  • ...</span></li><li><span>onBind() </span><code>绑定服务</code>
+<span>• </span><code>IBinder onBind(Intent intent)</code>
+<span>• 用来</span><code>activity</code><span>与</span><code>Service</code><span>进行通信</span></li><li><span>onUnbind() </span><code>解绑服务</code></li><li><span>stopSelf() </span><code>停止服务</code></li><li><span>onDestroy() </span><code>销毁服务</code></li></ol><h5><a name="2-外部调用" class="md-header-anchor"></a><span>2. 外部调用</span></h5><ol start='' ><li><span>startService() </span><code>启动服务</code>
+<span>• 调用：</span><code>onCreate()</code><span>、</span><code>onStartCommand()</code></li><li><span>stopService() </span><code>关闭服务</code>
+<span>• 调用：</span><code>onDestory()</code>
+<span>• 当</span><code>Service</code><span>为绑定状态需先解绑后再调用</span><code>stopService()</code><span>，直接调用</span><code>stopService()</code><span>无法停止</span></li><li><span>bindService() </span><code>绑定服务</code>
+<span>• 调用：</span><code>onCreate()</code><span>、</span><code>onBind()</code>
+<span>• </span><code>boolean bindService(Intent service, ServiceConnection conn, int flags)</code>
+<span>  • Intent：意图</span>
+<span>  • ServiceConnection：监听服务状态</span>
+<span>    • </span><code>onServiceConnected(ComponentName name, IBinder service)</code><span> </span><code>activity</code><span>与</span><code>Service</code><span>成功绑定</span>
+<span>      •  </span><code>IBinder</code><span>为</span><code>Service</code><span>的</span><code>Binder</code><span>实例，通过此实例操作</span><code>Service</code>
+<span>      • 运行在主线程</span>
+<span>    • </span><code>onServiceDisconnected</code><span> </span><code>activity</code><span>与</span><code>Service</code><span>解绑</span>
+<span>      • 运行在主线程</span>
+<span>  • 标志位</span>
+<span>    • </span><code>BIND_AUTO_CREATE</code><span>：绑定存在，就自动创建</span>
+<span>    • ...</span></li><li><span>unbindService() </span><code>解绑服务</code>
+<span>• 调用：</span><code>onUnbind()</code><span>、</span><code>onDestory()</code></li></ol><h5><a name="21-其他常用方法" class="md-header-anchor"></a><span>2.1. 其他常用方法</span></h5><ol start='' ><li><code>startForeground(int id, Notification notification)</code><span> 使后台</span><code>Service</code><span>变为前台</span><code>Service</code>
+<span>• id：通知id</span>
+<span>• notification：通知对象</span></li><li><code>stopForeground()</code><span> 从前台状态中删除此</span><code>Service</code></li><li><span>配置</span>
+<span>• </span><code>android:enabled=[&quot;true&quot; | &quot;false&quot;]</code><span>  能否被系统实例化</span>
+<span>• </span><code>android:exported=[&quot;true&quot; | &quot;false&quot;]</code><span> 能否与其它应用交互</span>
+<span>• </span><code>android:process=[&quot;Sting&quot;]</code><span> 是否在单独的进程</span></li></ol><h5><a name="3-标准服务" class="md-header-anchor"></a><span>3. 标准服务</span></h5><p><span>• </span><code>Service</code><span> 默认在主线程，如处理耗时逻辑容易ANR ( Application Not Responding)</span>
+<span>• 应在</span><code>Service</code><span>每个具体方法里开启子线程处理耗时逻辑</span></p><h5><a name="4-服务分类" class="md-header-anchor"></a><span>4. 服务分类</span></h5><ol start='' ><li><span>本地 vs 远程</span>
+<span>• 本地服务(LocalService)</span>
+<span>  • 运行在主进程（节约资源）</span>
+<span>  • 主线程被终止后，</span><code>Service</code><span>也会终止（限制性大）</span>
+<span>  • 在同一进程不需</span><code>IPC</code><span>和</span><code>AIDL</code><span>通信</span>
+<span>  • 最常用的</span><code>Service</code><span>类型，如音乐播放</span>
+<span>• 远程服务(RemoteService)</span>
+<span>  • 运行在独立进程（消耗资源）</span>
+<span>  • </span><code>Service</code><span>常驻后台，不受其他</span><code>Ativity</code><span>影响（灵活）</span>
+<span>  • 使用</span><code>AIDL</code><span>进行</span><code>IPC</code><span>通信复杂</span>
+<span>  • 常作为系统级服务</span></li><li><span>前台 vs 后台</span>
+<span>• 前台服务</span>
+<span>  • 通知栏显示通知 (用户可见)</span>
+<span>  • </span><code>Service</code><span> 显示在通知栏，如音乐播放</span><code>Service</code>
+<span>  • 终止时，通知栏的通知也会消失</span>
+<span>• 后台服务</span>
+<span>  • 处于后台（用户无法看到）</span>
+<span>  • 不需要让用户知道，如天气更新、日期同步。</span>
+<span>  • 终止时，用户无法知道</span></li><li><span>不可通信 vs 可通信</span>
+<span>• 不可通信的后台服务</span>
+<span>  • 用</span><code>startService()</code><span>启动，调用者退出后服务仍然存在</span>
+<span>  • </span><code>Service</code><span> 不需与</span><code>Activity</code><span>通信</span>
+<span>• 可通信的后台</span><code>Service</code>
+<span>  • bindService() 启动：</span>
+<span>    • 用</span><code>bindService()</code><span>绑定，调用者退出后</span><code>Service</code><span>销毁</span>
+<span>    • </span><code>Service</code><span>需与</span><code>Activity</code><span>通信、需控制</span><code>Service</code><span>开始时刻</span>
+<span>    • 节约系统资源，第一次</span><code>BindService()</code><span>时才会创建实例并运行，当服务为远程服务(Remote Service)时效果明显</span>
+<span>    • </span><code>Service</code><span>只是公开远程接口，供客户端调用执行</span>
+<span>    • </span><code>BroadcastReceiver</code><span>也可完成需求，但若交互频綮，容易造成性能问题</span>
+<span>  • StartService()、bindService()启动：</span>
+<span>    • 用</span><code>StartService()</code><span>、</span><code>bindService()</code><span>启动，调用者退出后服务销毁</span>
+<span>    • </span><code>Service</code><span>需与</span><code>Activity</code><span>、不需控制</span><code>Service</code><span>开始时刻(服务一开始便运行)</span></li></ol><h5><a name="5-intentservice" class="md-header-anchor"></a><span>5. IntentService</span></h5><p><span>处理异步请求实现多线程，任务在后台按顺序执行，执行后自行关闭。常用做离线下载等。</span></p><ol start='' ><li><span>本质</span>
+<code>IntentService</code><span> = </span><code>Handler</code><span> + </span><code>HandlerThread</code>
+<span>• 通过</span><code>HandlerThread</code><span>单独开启1个工作线程：</span><code>IntentService</code>
+<span>• 创建1个内部</span><code>Handler</code><span>：</span><code>ServiceHandler</code>
+<span>• 绑定</span><code>ServiceHandler</code><span>与</span><code>IntentService</code>
+<span>• 通过</span><code>onStartCommand()</code><span>传递服务</span><code>intent</code><span>到</span><code>ServiceHandler</code><span>、依次插入</span><code>Intent</code><span>到工作队列中并逐个发送给</span><code>onHandleIntent()</code>
+<span>• 通过</span><code>onHandleIntent()</code><span>依次处理所有</span><code>Intent</code><span>对象所对应的任务</span>
+<span>因此我们通过复写</span><code>onHandleIntent()</code><span> 并在里面根据</span><code>Intent</code><span>的不同进行不同线程操作即可</span></li><li><span>说明</span>
+<span>• 多次启动</span><code>IntentService</code><span>，每个耗时操作以队列的方式在</span><code>IntentService</code><span>的</span><code>onHandleIntent</code><span>回调中依次执行，执行完自动结束</span>
+<span>• 工作任务队列是顺序执行的，若服务停止，则会清除消息队列中的消息，后续的事件不执行</span>
+<span>• 不建议通过</span><code>bindService()</code><span>启动</span><code>IntentService</code><span>。在</span><code>IntentService</code><span>中</span><code>onBind()</code><span>默认返回</span><code>null</code><span>。</span></li></ol><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><span>进程保活</span>
+<span>Service的运行线程（生命周期方法全部在主线程）</span>
+<span>Service启动方式以及如何停止</span>
+<span>ServiceConnection里面的回调方法运行在哪个线程？</span></p><p><span>Android Service、IntentService，Service和组件间通信</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><ul><li><span>IPC：Inter-Process Communication，即跨进程通信。</span></li><li><span>AIDL：Android Interface Definition Language，即Android接口定义语言。用于让某个Service与多个应用程序组件之间进行跨进程通信，从而可以实现多个应用程序共享同一个Service的功能。</span></li></ul><p>&nbsp;</p><p>&nbsp;</p><h5><a name="activity间通信方式" class="md-header-anchor"></a><span>Activity间通信方式</span></h5><ol start='' ><li><span>借助Intent携带数据</span></li><li><span>借助类的静态变量</span></li><li><span>借助全局变量 Application</span></li><li><span>借助 Service 服务</span></li><li><span>借助外部存储来实现通讯</span></li></ol><h5><a name="activity上有dialog的时候按home键时的生命周期" class="md-header-anchor"></a><span>Activity上有Dialog的时候按Home键时的生命周期</span></h5><ul><li><code>onCreate()</code><span> --  </span><code>onStart()</code><span> --  </span><code>onResume()</code><span> --点击</span><strong><span>Dialog</span></strong><span>--  </span><code>onPause()</code><span> --  </span><code>onStop()</code></li></ul><h5><a name="application-和-activity-的-context-对象的区别" class="md-header-anchor"></a><span>Application 和 Activity 的 Context 对象的区别</span></h5><ul><li><span>生命周期不同，Application的生命周期即App的生命周期，通常比Activity的生命周期长的多，所以对于生命周期长的对象，一般使用application作为context，避免不恰当的持有Activity造成内存泄漏。</span></li><li><span>Application 不能showDialog</span></li><li><span>Application startActivity 时，必须new一个Task</span></li><li><span>Application在layoutInflate 时，直接使用默认主题，可能与当前主题不一样</span></li></ul><h5><a name="application的生命周期" class="md-header-anchor"></a><span>Application的生命周期</span></h5><ul><li><span>onCreate() 程序创建的时候执行</span></li><li><span>onTerminate() 程序终止的时候执行</span></li><li><span>onLowMemory() 低内存的时候执行</span></li><li><span>onConfigurationChanged(Configuration newConfig) 配置改变时触发这个方法。</span></li><li><span>onTrimMemory(int level) 程序在进行内存清理时执行</span></li></ul><h5><a name="recyclerview" class="md-header-anchor"></a><span>RecyclerView</span></h5><ol start='' ><li><p><span>基础优化</span></p><ul><li><p><span>不要在</span><code>onBind</code><span>设置监听。因为</span><code>mRecyclerPool</code><span>取</span><code>ViewHolder</code><span>时要重新调用</span><code>onBind</code><span>。</span><code>onClickListener</code><span>应设置在</span><code>ViewHolder</code><span>。</span></p></li><li><p><span>不要在</span><code>onBindViewHolder</code><span>做逻辑判断和计算。</span></p><p><code>bindViewHolder</code><span>方法是在UI线程进行的，如果在该方法进行耗时操作，将会影响滑动的流畅性。</span></p></li><li><p><span>设置高度固定</span></p><p><span>如果</span><code>RecyclerView</code><span>固定宽高，只是用于展示固定大小的组件，可设置</span><code>recyclerView.setHasFixedSize(true)</code><span>这样可避免每次绘制</span><code>Item</code><span>时，不再重新计算高度。</span></p></li><li><p><span>重写 onScroll</span></p><p><span>对于大量图片、复杂布局的</span><code>RecyclerView</code><span>考虑重写</span><code>onScroll</code><span>事件，滑动暂停后再加载。</span></p></li><li><p><span>最大程度不使用 notifyDataSetChanged</span></p><p><span>对于新增或删除数据通过</span><code>DiffUtil</code><span>，来进行局部数据刷新，而不是一味的全局刷新数据。</span></p></li><li><p><span>减少每个 ItemView 的层级嵌套，减少过度绘制</span></p></li><li><p><span>刷新闪烁，设置稳定Id</span></p><p><span>当调用</span><code>notifyDataSetChanged</code><span>的时候，</span><code>recyclerView</code><span>会刷新所有数据，将所有的</span><code>viewHolder</code><span>都放入到</span><code>pool</code><span>中。</span>
+<span>但是，如果我们设置了</span><code>stable ids</code><span>，那么就会不一样了:</span><code>viewHolder</code><span>被放入了</span><code>scrap</code><span>中，而不是</span><code>pool</code><span>中。注意，这里，它的性能提升了很多！</span></p></li><li><p><span>设置数据预取功能</span></p></li></ul></li><li><p><span>缓存优化</span></p><ul><li><span>设置</span><code>mCachedViews</code><span>大小（壁纸库）</span></li><li><span>设置每个类型储存的容量 </span><code>RecycledViewPool</code></li><li><span>多个列表公用一个</span><code>RecycledViewPool</code></li></ul></li><li><p><span>其他</span></p><ul><li><span>分页加载</span></li></ul></li></ol><h5><a name="自定义view" class="md-header-anchor"></a><span>自定义View</span></h5><p><img src="https://upload-images.jianshu.io/upload_images/3087349-70cb7dd14ce2a2ff.jpg" referrerpolicy="no-referrer"></p><h5><a name="apk的大小如何压缩" class="md-header-anchor"></a><span>Apk的大小如何压缩</span></h5><ul><li><span>减少res，压缩图文文件</span></li><li><span>减少dex文件大小</span></li><li><span>减少lib文件大小</span></li></ul><h5><a name="类加载机制" class="md-header-anchor"></a><span>类加载机制</span></h5><ul><li><span>Android中常用的两种类加载器，DexClassLoader和PathClassLoader，它们都继承于BaseDexClassLoader，两者区别在于PathClassLoader只能加载内部存储目录的dex/jar/apk文件。DexClassLoader支持加载指定目录(不限于内部)的dex/jar/apk文件</span></li></ul><h5><a name="性能优化" class="md-header-anchor"></a><span>性能优化</span></h5><ol start='' ><li><span>布局优化</span></li><li><span>绘制优化</span></li><li><span>内存泄漏优化</span></li><li><span>响应速度优化</span></li><li><span>ListView/RecycleView及Bitmap优化</span></li><li><span>线程优化</span></li><li><span>其他性能优化的建议</span></li></ol><p>&nbsp;</p><h4><a name="二java" class="md-header-anchor"></a><span>二、Java</span></h4><h5><a name="抽象类" class="md-header-anchor"></a><span>抽象类</span></h5><ul><li><span>解决复用问题，适用于is-a的关系。</span></li></ul><h5><a name="接口" class="md-header-anchor"></a><span>接口</span></h5><ul><li><span>解决抽象问题，适用于has-a的关系。更加形象的叫法，那就是协议（contract）。</span></li><li><span>接口侧重于解耦。</span></li></ul><h5><a name="类加载" class="md-header-anchor"></a><span>类加载</span></h5><p><img src="https://img2018.cnblogs.com/blog/774371/201907/774371-20190711091002721-196644638.png" referrerpolicy="no-referrer" alt="Class的生命周期"></p><h4><a name="四设计模式" class="md-header-anchor"></a><span>四、设计模式</span></h4><h5><a name="1-mvc" class="md-header-anchor"></a><span>1. MVC</span></h5><ul><li><span>解决的问题</span>
+<span>解决</span><strong><span>程序模块化</span></strong><span>问题，MVC解耦</span></li><li><span>角色划分</span>
+<span>• Model 模型：负责数据的加载和存储</span>
+<span>• View 视图：负责界面的展示</span>
+<span>• Controller 控制器：负责逻辑控制</span></li><li><span>数据流向</span>
+<code>View</code><span> 产生事件，通知 </span><code>Controller</code><span> 进行逻辑处理，之后通知给 </span><code>Model</code><span> 更新数据，更新完成后，再将数据通知给 </span><code>View</code><span> 去更新界面</span></li><li><span>关系图</span>
+<img src="https://raw.githubusercontent.com/aiybybz/ImageBad/master/MVC_20200909163051.png" referrerpolicy="no-referrer" alt="MVC"></li></ul><h5><a name="2-mvp" class="md-header-anchor"></a><span>2. MVP</span></h5><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h5><a name="2-mvp-n313" class="md-header-anchor"></a><span>2. MVP</span></h5><p><span>解决</span><strong><span>隔离度不够</span></strong><span>，Activity代码</span><strong><span>臃肿</span></strong>
+<span>隔离了MVC中的 M 与 V 的直接联系</span></p><ul><li><p><span>MVP</span></p><p><span>解决</span><strong><span>隔离度不够</span></strong><span>，Activity代码</span><strong><span>臃肿</span></strong></p><p><span>隔离了MVC中的 M 与 V 的直接联系</span></p><ul><li><span>M：</span><code>Model</code><span> 数据模型</span></li><li><span>V：</span><code>View</code><span> 视图层</span></li><li><span>P：Presenter(代替Controller)负责逻辑的处理</span></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/15226743-947a7c01f8199148.png" referrerpolicy="no-referrer" alt="MVP"></p></li><li><p><span>MVVM</span></p><p><strong><span>更加分离M、V层</span></strong><span>，更加释放Activity的压力</span></p><p><span>V和M层之间的耦合程度进一步降低</span></p><p><span>以</span><strong><span>数据模型数据双向绑定</span></strong><span>为核心</span></p><ul><li><span>M：</span><code>Model</code><span> 数据模型</span></li><li><span>V：</span><code>View</code><span> 视图层</span></li><li><span>VM：</span><code>ViewModel</code><span> 绑定器，View的数据模型和Presenter的合体。双向绑定(data-binding)</span></li></ul><p><img src="https://upload-images.jianshu.io/upload_images/15226743-1b2adc4a66e12c6e.png" referrerpolicy="no-referrer" alt="MVVM"></p></li></ul><p>&nbsp;</p><p><span>算法</span></p><p>&nbsp;</p></div>
+</body>
+</html>
